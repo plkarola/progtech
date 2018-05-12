@@ -1,0 +1,51 @@
+.root {
+    -fx-background-color:#82b74b;
+    -fx-background-color:
+        linear-gradient(#b5e7a0, #86af49),
+        radial-gradient(center 20% -20%, radius 200%, #82b74b 45%, #b5e7a0 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+}
+
+.button {
+    
+    -fx-background-color:
+        linear-gradient(#f0ff35, #a9ff00),
+        radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: #395306;
+    -fx-font-weight: bold;
+    
+}
+
+.button:armed {
+    -fx-border-width: 2;
+    -fx-background-color: #395306; 
+
+}
+
+.button:hover {
+    -fx-border-width: 2;
+    -fx-text-fill: green;
+}
+
+.label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #395306;
+    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.5) , 0,0,0,1 );
+
+    
+}
+
+.TextField {
+
+}
+
+.Passwordfield {
+    -fx-background-color: #f5cec5;
+}
+

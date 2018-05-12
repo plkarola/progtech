@@ -46,9 +46,10 @@ public class GameDAOImpl implements GameDAO {
             DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = df.newDocumentBuilder();
         
-            File input = new File("Easy.xml");
+            //File input = new File("Easy.xml");
             //ClassLoader classLoader = getClass().getClassLoader();
             //File input = new File(classLoader.getResource("Easy.xml").getFile());
+            String input = this.getClass().getClassLoader().getResource("Tables/Easy.xml").toString();
             Document doc = db.parse(input);
             doc.getDocumentElement().normalize();
         
@@ -82,7 +83,8 @@ public class GameDAOImpl implements GameDAO {
             DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = df.newDocumentBuilder();
         
-            File input = new File("Medium.xml");
+            //File input = new File("Medium.xml");
+            String input = this.getClass().getClassLoader().getResource("Tables/Medium.xml").toString();
             Document doc = db.parse(input);
             doc.getDocumentElement().normalize();
         
@@ -117,7 +119,8 @@ public class GameDAOImpl implements GameDAO {
             DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = df.newDocumentBuilder();
         
-            File input = new File("Hard.xml");
+            //File input = new File("Hard.xml");
+            String input = this.getClass().getClassLoader().getResource("Tables/Hard.xml").toString();
             Document doc = db.parse(input);
             doc.getDocumentElement().normalize();
         

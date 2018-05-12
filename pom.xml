@@ -19,6 +19,8 @@
     </organization>
 
     <build>
+         <!--defaultGoal>package</defaultGoal>
+    <directory>${basedir}/build</directory-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -105,10 +107,10 @@
         
          <resources>
     <resource>
-      <directory>src/main/resources</directory>
+      <directory>${basedir}/src/main/resources</directory>
     </resource>
          </resources>
-    </build>
+    </build>   
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

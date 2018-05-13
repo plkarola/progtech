@@ -123,13 +123,8 @@ public class TableController implements Initializable {
                     tf.setStyle("-fx-control-inner-background:#80c800");
                 }
                 else {
-                    /*if (!oldValue.equals("") ) {
-                    errors = validator.getErrors(mat, Integer.parseInt(oldValue), i, j);
-                    showErrors(errors,"-fx-control-inner-background:#ffffff");
-                    }*/
                     tf.setStyle("-fx-control-inner-background:#ffffff");
                     mat[i][j] = number;
-                    //System.out.println(i + " "+ j);
                     validateCompletion(mat);
                 }
                 if (!oldValue.equals("") && !oldValue.equals(lastValue)) {
@@ -214,7 +209,12 @@ public class TableController implements Initializable {
     private void handleGoHome(ActionEvent event) {
         try{
             Stage stage = (Stage)username.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Home.fxml"));
+
+            String un = username.getText().replaceAll("Hello ", "");
+            un = un.replaceAll("!", "");
+            FXMLLoader f1 = new FXMLLoader(getClass().getResource("/fxml/Home.fxml"));
+            Parent root = f1.load();
+            f1.<HomeController>getController().showUsername(un);
             
             Scene scene = new Scene(root);
             scene.getStylesheets().add("/styles/Styles.css");

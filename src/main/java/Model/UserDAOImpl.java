@@ -1,6 +1,5 @@
 package Model;
 
-import Controller.MainApp;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +32,9 @@ public class UserDAOImpl implements UserDAO{
         try{
             DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = df.newDocumentBuilder();
-        
-			ClassLoader classLoader = getClass().getClassLoader();
-            //File input = new File(classLoader.getResourceAsStream("Users.xml"));
-			//File input = new File(getClass().getClassLoader().getResource("Users.xml").getFile());
-            //File input = new File("Users.xml");
-            String input = this.getClass().getClassLoader().getResource("Users.xml").toString();
+
+            File input = new File("Users.xml");
+
             Document doc = db.parse(input);
             doc.getDocumentElement().normalize();
             
@@ -63,20 +59,19 @@ public class UserDAOImpl implements UserDAO{
             user.appendChild(table);
             
             users.appendChild(user);
-            
+
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            File output = new File(this.getClass().getClassLoader().getResource("Users.xml").getFile());
-            StreamResult result = new StreamResult(output);
+
+            StreamResult result = new StreamResult(new File("Users.xml"));
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
             transformer.transform(source, result);
 
         }
         catch (Exception e) {e.printStackTrace();}
-        
-        //return true;
+
     }    
 
     @Override
@@ -85,7 +80,7 @@ public class UserDAOImpl implements UserDAO{
         try{
             DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = df.newDocumentBuilder();
-            String input = this.getClass().getClassLoader().getResource("Users.xml").toString();
+            File input = new File("Users.xml");
             Document doc = db.parse(input);
             doc.getDocumentElement().normalize();
         
